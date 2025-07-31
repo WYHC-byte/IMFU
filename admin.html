@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SquareAirline Admin Panel</title>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #0a0a0a;
+            --secondary-black: #1a1a1a;
+            --primary-gray: #2d2d2d;
+            --secondary-gray: #4a4a4a;
+            --silver: #c0c0c0;
+            --bright-silver: #e0e0e0;
+            --accent: #00d4ff;
+            --success: #00ff88;
+            --danger: #ff4444;
+            --warning: #ffaa00;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--primary-black);
+            color: var(--silver);
+            min-height: 100vh;
+        }
+
+        /* Login Screen */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+        }
+
+        .login-box {
+            background: var(--secondary-black);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--primary-gray);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--silver), var(--bright-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .login-box p {
+            color: var(--silver);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--silver);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-gray);
+            border: 1px solid var(--secondary-gray);
+            border-radius: 8px;
+            color: var(--bright-silver);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #0099cc);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,212,255,0.3);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-gray);
+            color: var(--bright-silver);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: var(--primary-black);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Admin Dashboard */
+        .admin-container {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .admin-header {
+            background: var(--secondary-black);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--primary-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-header h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--silver), var(--bright-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .admin-nav {
+            background: var(--secondary-black);
+            width: 250px;
+            height: calc(100vh - 80px);
+            position: fixed;
+            left: 0;
+            top: 80px;
+            border-right: 1px solid var(--primary-gray);
+            padding: 2rem 0;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 1rem 2rem;
+            color: var(--silver);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: var(--primary-gray);
+            color: var(--bright-silver);
+            border-left-color: var(--accent);
+        }
+
+        .nav-item.active {
+            background: var(--primary-gray);
+            color: var(--accent);
+            border-left-color: var(--accent);
+        }
+
+        .nav-item i {
+            margin-right: 0.5rem;
+            width: 20px;
+        }
+
+        .admin-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--secondary-black);
+            border: 1px solid var(--primary-gray);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: var(--bright-silver);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: var(--primary-gray);
+            padding: 1rem;
+            text-align: left;
+            color: var(--bright-silver);
+            font-weight: 600;
+            border-bottom: 2px solid var(--secondary-gray);
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--primary-gray);
+            color: var(--silver);
+        }
+
+        .data-table tr:hover {
+            background: var(--primary-gray);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--secondary-black);
+            border: 1px solid var(--primary-gray);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            color: var(--bright-silver);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--silver);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--danger);
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--primary-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--secondary-gray);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.1);
+        }
+
+        .stat-card .icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bright-silver);
+        }
+
+        .stat-card .label {
+            color: var(--silver);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .admin-nav {
+                transform: translateX(-100%);
+            }
+
+            .admin-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginScreen">
+        <div class="login-box">
+            <h1>Admin Access</h1>
+            <p>Supreme Commander Login</p>
+            <form class="login-form" id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminUsername">Username</label>
+                    <input type="email" id="adminUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-lock"></i> Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-container" id="adminDashboard">
+        <header class="admin-header">
+            <h1>SquareAirline Command Center</h1>
+            <div>
+                <span style="margin-right: 1rem;">Supreme Commander</span>
+                <button class="btn btn-danger btn-sm" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <nav class="admin-nav">
+            <a href="#" class="nav-item active" onclick="showSection('dashboard')">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('flights')">
+                <i class="fas fa-plane"></i> Flights
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('hosts')">
+                <i class="fas fa-users"></i> Flight Hosts
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('calendar')">
+                <i class="fas fa-calendar"></i> Calendar
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('settings')">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+        </nav>
+
+        <main class="admin-content">
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="content-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-plane icon"></i>
+                        <div class="value" id="totalFlights">3</div>
+                        <div class="label">Total Flights</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users icon"></i>
+                        <div class="value" id="totalHosts">2</div>
+                        <div class="label">Flight Hosts</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check icon"></i>
+                        <div class="value" id="scheduledFlights">0</div>
+                        <div class="label">Scheduled Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line icon"></i>
+                        <div class="value">100%</div>
+                        <div class="label">System Status</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Recent Activity</h2>
+                    <p>No recent activity to display.</p>
+                </div>
+            </div>
+
+            <!-- Flights Section -->
+            <div id="flights-section" class="content-section" style="display: none;">
+                <div class="section">
+                    <div class="section-header">
+                        <h2>Flight Management</h2>
+                        <button class="btn btn-primary" onclick="showFlightModal()">
+                            <i class="fas fa-plus"></i> Add Flight
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Flight Number</th>
+                                <th>Route</th>
+                                <th>Duration</th>
+                                <th>Aircraft</th>
+                                <th>Amenities</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="flightsTableBody">
+                            <!-- Flights will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Hosts Section -->
+            <div id="hosts-section" class="content-section" style="display: none;">
+                <div class="section">
+                    <div class="section-header">
+                        <h2>Flight Host Management</h2>
+                        <button class="btn btn-primary" onclick="showHostModal()">
+                            <i class="fas fa-user-plus"></i> Add Host
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Status</th>
+                                <th>Flights Hosted</th>
+                                <th>Last Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hostsTableBody">
+                            <!-- Hosts will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Calendar Section -->
+            <div id="calendar-section" class="content-section" style="display: none;">
+                <div class="section">
+                    <h2>Flight Schedule Calendar</h2>
+                    <p>Calendar view coming soon...</p>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings-section" class="content-section" style="display: none;">
+                <div class="section">
+                    <h2>System Settings</h2>
+                    <p>System configuration options coming soon...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Flight Modal -->
+    <div class="modal" id="flightModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add/Edit Flight</h3>
+                <button class="close-btn" onclick="closeModal('flightModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="flightForm">
+                <div class="form-group">
+                    <label>Flight Number</label>
+                    <input type="text" id="flightNumber" required>
+                </div>
+                <div class="form-group">
+                    <label>From</label>
+                    <input type="text" id="flightFrom" required>
+                </div>
+                <div class="form-group">
+                    <label>To</label>
+                    <input type="text" id="flightTo" required>
+                </div>
+                <div class="form-group">
+                    <label>Duration</label>
+                    <input type="text" id="flightDuration" required>
+                </div>
+                <div class="form-group">
+                    <label>Aircraft</label>
+                    <input type="text" id="flightAircraft" required>
+                </div>
+                <button type="submit" class="btn btn-success">Save Flight</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Host Modal -->
+    <div class="modal" id="hostModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add/Edit Host</h3>
+                <button class="close-btn" onclick="closeModal('hostModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="hostForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="hostUsername" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="hostPassword" required>
+                </div>
+                <button type="submit" class="btn btn-success">Save Host</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDeV6WClmPOjlIlKYnrbjDmXzPH8xfZGc0",
+            authDomain: "ifou-aed8d.firebaseapp.com",
+            projectId: "ifou-aed8d",
+            storageBucket: "ifou-aed8d.firebasestorage.app",
+            messagingSenderId: "102878943260",
+            appId: "1:102878943260:web:cbfb590fe8fba8d52027d9",
+            measurementId: "G-D8B70MK64T"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Admin credentials
+        const ADMIN_USERNAME = "arvin757200@gmail.com";
+        const ADMIN_PASSWORD = "AL110627AL110627";
+
+        // Flight data (initial)
+        let flights = [
+            {
+                id: 1,
+                number: "SQ 421",
+                from: "PVG",
+                to: "SEA",
+                duration: "11hr",
+                aircraft: "B777-9X",
+                amenities: ["Wifi", "IFE", "Service", "USB"]
+            },
+            {
+                id: 2,
+                number: "SQ 021",
+                from: "PVG",
+                to: "SEA",
+                duration: "11hr",
+                aircraft: "B787-9",
+                amenities: ["Wifi", "IFE", "Service", "USB"]
+            },
+            {
+                id: 3,
+                number: "SQ 288",
+                from: "PVG",
+                to: "SEA",
+                duration: "14hr",
+                aircraft: "A330-300",
+                amenities: ["Wifi", "IFE", "Service", "USB"]
+            }
+        ];
+
+        // Host data (initial)
+        let hosts = [
+            {
+                id: 1,
+                username: "host1",
+                password: "password1",
+                status: "Active",
+                flightsHosted: 0,
+                lastActive: "Never"
+            },
+            {
+                id: 2,
+                username: "host2",
+                password: "password2",
+                status: "Active",
+                flightsHosted: 0,
+                lastActive: "Never"
+            }
+        ];
+
+        // Admin login
+        document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                loadDashboard();
+            } else {
+                alert('Invalid credentials! Only the Supreme Commander can access this panel.');
+            }
+        });
+
+        // Load dashboard
+        function loadDashboard() {
+            document.getElementById('totalFlights').textContent = flights.length;
+            document.getElementById('totalHosts').textContent = hosts.length;
+            loadFlights();
+            loadHosts();
+        }
+
+        // Show section
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(sec => {
+                sec.style.display = 'none';
+            });
+            
+            // Show selected section
+            document.getElementById(`${section}-section`).style.display = 'block';
+            
+            // Update nav
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Load flights
+        function loadFlights() {
+            const tbody = document.getElementById('flightsTableBody');
+            tbody.innerHTML = '';
+            
+            flights.forEach(flight => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${flight.number}</td>
+                    <td>${flight.from} → ${flight.to}</td>
+                    <td>${flight.duration}</td>
+                    <td>${flight.aircraft}</td>
+                    <td>${flight.amenities.join(', ')}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-secondary btn-sm" onclick="editFlight(${flight.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteFlight(${flight.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Load hosts
+        function loadHosts() {
+            const tbody = document.getElementById('hostsTableBody');
+            tbody.innerHTML = '';
+            
+            hosts.forEach(host => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${host.username}</td>
+                    <td><span style="color: var(--success)">${host.status}</span></td>
+                    <td>${host.flightsHosted}</td>
+                    <td>${host.lastActive}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-secondary btn-sm" onclick="editHost(${host.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteHost(${host.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Modal functions
+        function showFlightModal() {
+            document.getElementById('flightModal').style.display = 'flex';
+        }
+
+        function showHostModal() {
+            document.getElementById('hostModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Delete functions
+        function deleteFlight(id) {
+            if (confirm('Are you sure you want to delete this flight?')) {
+                flights = flights.filter(f => f.id !== id);
+                loadFlights();
+                document.getElementById('totalFlights').textContent = flights.length;
+            }
+        }
+
+        function deleteHost(id) {
+            if (confirm('Are you sure you want to delete this host?')) {
+                hosts = hosts.filter(h => h.id !== id);
+                loadHosts();
+                document.getElementById('totalHosts').textContent = hosts.length;
+            }
+        }
+
+        // Logout
+        function logout() {
+            document.getElementById('adminDashboard').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('adminUsername').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+
+        // Close modals on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Flight form submission
+        document.getElementById('flightForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const newFlight = {
+                id: flights.length + 1,
+                number: document.getElementById('flightNumber').value,
+                from: document.getElementById('flightFrom').value,
+                to: document.getElementById('flightTo').value,
+                duration: document.getElementById('flightDuration').value,
+                aircraft: document.getElementById('flightAircraft').value,
+                amenities: ["Wifi", "IFE", "Service", "USB"]
+            };
+            
+            flights.push(newFlight);
+            
+            // Save to Firebase
+            try {
+                await db.collection('flights').add(newFlight);
+                loadFlights();
+                closeModal('flightModal');
+                document.getElementById('flightForm').reset();
+                document.getElementById('totalFlights').textContent = flights.length;
+            } catch (error) {
+                console.error('Error adding flight:', error);
+            }
+        });
+
+        // Host form submission
+        document.getElementById('hostForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const newHost = {
+                id: hosts.length + 1,
+                username: document.getElementById('hostUsername').value,
+                password: document.getElementById('hostPassword').value,
+                status: "Active",
+                flightsHosted: 0,
+                lastActive: "Never"
+            };
+            
+            hosts.push(newHost);
+            
+            // Save to Firebase
+            try {
+                await db.collection('hosts').add(newHost);
+                loadHosts();
+                closeModal('hostModal');
+                document.getElementById('hostForm').reset();
+                document.getElementById('totalHosts').textContent = hosts.length;
+            } catch (error) {
+                console.error('Error adding host:', error);
+            }
+        });
+    </script>
+</body>
+</html>
