@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Square Airways - Serving the US West Coast with High Quality Since 2024</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>TyloAI - Intelligent AI Assistant</title>
+    <meta name="description" content="TyloAI - Next-generation intelligent AI assistant supporting multimodal interaction and streaming conversations">
+    
+    <!-- External icon libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -13,1435 +19,2116 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --luxury-black: #000000;
-            --premium-black: #0a0a0a;
-            --deep-black: #141414;
-            --charcoal: #1e1e1e;
-            --platinum: #e5e4e2;
-            --silver: #c0c0c0;
-            --bright-silver: #e8e8e8;
-            --dark-silver: #a8a8a8;
-            --pearl: #f8f8ff;
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --accent-primary: #c0c0c0;
-            --accent-secondary: #a8a8a8;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--luxury-black);
-            color: var(--text-primary);
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
+            color: #333;
+            background: #fff;
+            overflow-x: hidden;
         }
 
-        /* Luxury Navigation - Seamless with Hero */
-        nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            background: transparent;
-            z-index: 1000;
-            padding: 2rem 0;
-            transition: all 0.4s ease;
-        }
-
-        nav.scrolled {
-            position: fixed;
-            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%);
-            backdrop-filter: blur(20px);
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(192, 192, 192, 0.2);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 3rem;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--silver), var(--bright-silver), var(--silver));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            color: var(--platinum);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            text-transform: uppercase;
-        }
-
-        .nav-links a:hover {
-            color: var(--silver);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--silver);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section - Full Screen */
-        #hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('hero.jpg') center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            text-align: center;
-            z-index: 1;
-            animation: fadeIn 1.5s ease;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--silver), var(--platinum), var(--silver));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
-            letter-spacing: 3px;
-        }
-
-        .hero-tagline {
-            font-size: 1.5rem;
-            color: var(--platinum);
-            margin-bottom: 1rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-        }
-
-        .luxury-cta {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--silver), var(--bright-silver));
-            color: var(--luxury-black);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .luxury-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .luxury-cta:hover::before {
-            left: 100%;
-        }
-
-        .luxury-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(192, 192, 192, 0.3);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--silver), var(--platinum));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* About Section - Clean Style */
-        #about {
-            background: linear-gradient(180deg, var(--luxury-black) 0%, var(--premium-black) 100%);
-            position: relative;
-        }
-
-        #about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--silver), transparent);
-        }
-
-        .about-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-intro {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--platinum);
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .luxury-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .luxury-feature {
-            background: rgba(192, 192, 192, 0.05);
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(192, 192, 192, 0.1);
-        }
-
-        .luxury-feature:hover {
-            transform: translateY(-5px);
-            background: rgba(192, 192, 192, 0.08);
-            border-color: rgba(192, 192, 192, 0.3);
-        }
-
-        .luxury-feature i {
-            font-size: 2.5rem;
-            color: var(--silver);
-            margin-bottom: 1.5rem;
-        }
-
-        .luxury-feature h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--platinum);
-            margin-bottom: 1rem;
-        }
-
-        /* Premium Flight Cards - Simplified */
-        #flights {
-            background: var(--deep-black);
-        }
-
-        .flight-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .premium-flight-card {
-            background: rgba(30, 30, 30, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 2.5rem;
-            align-items: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(192, 192, 192, 0.1);
-        }
-
-        .premium-flight-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--silver);
-            background: rgba(30, 30, 30, 0.9);
-        }
-
-        .flight-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--silver);
-        }
-
-        .flight-route {
-            font-size: 1.3rem;
-            color: var(--platinum);
-            font-weight: 500;
-        }
-
-        .flight-details {
-            display: flex;
-            gap: 2rem;
-            margin-top: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .flight-details span {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .premium-amenities {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .premium-amenity {
-            background: rgba(192, 192, 192, 0.1);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .premium-amenity:hover {
-            background: rgba(192, 192, 192, 0.2);
-        }
-
-        .premium-amenity i {
-            color: var(--silver);
-            font-size: 0.9rem;
-        }
-
-        /* Chat Widget - Simplified */
-        .chat-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-        }
-
-        .chat-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--silver), var(--bright-silver));
-            color: var(--luxury-black);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(192, 192, 192, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .chat-button:hover {
-            transform: scale(1.1);
-        }
-
-        .chat-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            z-index: 1000;
-        }
-
-        .chat-overlay.active {
-            display: block;
-        }
-
-        .chat-window {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 650px;
-            background: var(--deep-black);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            display: none;
-            flex-direction: column;
-            border: 1px solid rgba(192, 192, 192, 0.2);
-            overflow: hidden;
-            z-index: 1001;
-        }
-
-        .chat-window.active {
-            display: flex;
-        }
-
-        .chat-header {
-            background: var(--charcoal);
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(192, 192, 192, 0.1);
-        }
-
-        .chat-header h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--silver);
-            font-size: 1.3rem;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: var(--platinum);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .chat-close:hover {
-            color: var(--silver);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            background: var(--premium-black);
-        }
-
-        .message {
-            margin-bottom: 1rem;
-            animation: messageSlide 0.3s ease;
-        }
-
-        @keyframes messageSlide {
+        /* Animation definitions */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Navigation bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        /* Hero section - full screen */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: #fff;
+            transition: all 0.5s ease;
+        }
+
+        .hero.chat-mode {
+            align-items: flex-start;
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 2rem;
+            transition: all 0.5s ease;
+        }
+
+        /* Input container */
+        .input-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: all 0.5s ease;
+        }
+
+        .hero.chat-mode .input-container {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 800px;
+            z-index: 100;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 1.5rem 4rem 1.5rem 2rem;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            font-size: 1.125rem;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-input:focus {
+            border-color: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .send-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .send-button:hover {
+            background: #333;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .send-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: translateY(-50%);
+        }
+
+        /* Chat messages area */
+        .chat-messages {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            max-height: calc(100vh - 300px);
+            overflow-y: auto;
+        }
+
+        .hero.chat-mode .chat-messages {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .message {
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .message.user {
             text-align: right;
         }
 
-        .message.bot {
+        .message.ai {
             text-align: left;
         }
 
-        .message-content {
+        .message-bubble {
             display: inline-block;
-            padding: 1rem 1.5rem;
-            border-radius: 20px;
             max-width: 80%;
-            word-wrap: break-word;
-        }
-
-        .user .message-content {
-            background: linear-gradient(135deg, var(--silver), var(--bright-silver));
-            color: var(--luxury-black);
-        }
-
-        .bot .message-content {
-            background: var(--charcoal);
-            color: var(--platinum);
-            border: 1px solid rgba(192, 192, 192, 0.1);
-        }
-
-        .chat-input-container {
-            padding: 1.5rem;
-            background: var(--deep-black);
-            border-top: 1px solid rgba(192, 192, 192, 0.1);
-        }
-
-        .chat-options {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            justify-content: center;
-        }
-
-        .response-option {
-            padding: 0.5rem 1rem;
-            background: var(--charcoal);
-            border: 1px solid rgba(192, 192, 192, 0.2);
+            padding: 1.25rem 1.75rem;
             border-radius: 20px;
-            color: var(--platinum);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .response-option:hover,
-        .response-option.active {
-            background: var(--silver);
-            color: var(--luxury-black);
-        }
-
-        .chat-input-wrapper {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 1rem;
-            background: var(--charcoal);
-            border: 1px solid rgba(192, 192, 192, 0.2);
-            border-radius: 25px;
-            color: var(--platinum);
+            word-wrap: break-word;
+            line-height: 1.6;
             font-size: 1rem;
         }
 
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--silver);
+        .message.user .message-bubble {
+            background: #000;
+            color: #fff;
         }
 
-        .chat-send {
-            padding: 1rem 1.5rem;
-            background: linear-gradient(135deg, var(--silver), var(--bright-silver));
-            color: var(--luxury-black);
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
+        .message.ai .message-bubble {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #eee;
+        }
+
+        /* AI message content formatting styles */
+        .message.ai .message-bubble h1,
+        .message.ai .message-bubble h2,
+        .message.ai .message-bubble h3,
+        .message.ai .message-bubble h4,
+        .message.ai .message-bubble h5,
+        .message.ai .message-bubble h6 {
+            color: #000;
+            margin: 1rem 0 0.5rem 0;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
 
-        .chat-send:hover {
-            transform: scale(1.05);
+        .message.ai .message-bubble h1 { font-size: 1.5rem; }
+        .message.ai .message-bubble h2 { font-size: 1.3rem; }
+        .message.ai .message-bubble h3 { font-size: 1.1rem; }
+        
+        .message.ai .message-bubble p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
         }
 
-        /* Premium Footer - Simplified */
-        footer {
-            background: linear-gradient(180deg, var(--deep-black) 0%, var(--luxury-black) 100%);
-            padding: 3rem 0 2rem;
-            border-top: 1px solid rgba(192, 192, 192, 0.1);
+        .message.ai .message-bubble ul,
+        .message.ai .message-bubble ol {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 2.5rem;
+        .message.ai .message-bubble li {
+            margin: 0.25rem 0;
         }
 
-        .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--silver);
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
+        .message.ai .message-bubble blockquote {
+            border-left: 3px solid #000;
+            margin: 1rem 0;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #666;
         }
 
-        .footer-section p, .footer-section a {
-            color: var(--platinum);
-            text-decoration: none;
-            line-height: 1.8;
-            transition: color 0.3s ease;
+        .message.ai .message-bubble code {
+            background: #f1f3f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #d73a49;
         }
 
-        .footer-section a:hover {
-            color: var(--silver);
+        .message.ai .message-bubble pre {
+            background: #f8f9fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            position: relative;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(192, 192, 192, 0.1);
-            color: var(--text-secondary);
+        .message.ai .message-bubble pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+            font-size: 0.875rem;
+            line-height: 1.4;
         }
 
-        .powered-by {
-            margin-top: 1rem;
+        .code-header {
+            background: #e1e4e8;
+            padding: 0.5rem 1rem;
+            border-radius: 8px 8px 0 0;
+            font-size: 0.8rem;
+            color: #666;
+            border-bottom: 1px solid #d1d5da;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            margin: -1rem -1rem 0.5rem -1rem;
+        }
+
+        .message.ai .message-bubble table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
             font-size: 0.9rem;
         }
 
-        .powered-by a {
-            color: var(--silver);
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .message.ai .message-bubble th,
+        .message.ai .message-bubble td {
+            border: 1px solid #e1e4e8;
+            padding: 0.5rem;
+            text-align: left;
         }
 
-        .powered-by a:hover {
-            text-decoration: underline;
+        .message.ai .message-bubble th {
+            background: #f6f8fa;
+            font-weight: 600;
+            color: #000;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .message.ai .message-bubble tr:nth-child(even) {
+            background: #f9f9f9;
         }
 
-        /* FAQ Section - Clean Style */
-        #faq {
-            background: var(--premium-black);
+        .message.ai .message-bubble strong {
+            font-weight: 600;
+            color: #000;
         }
 
-        .faq-container {
-            max-width: 900px;
+        .message.ai .message-bubble em {
+            font-style: italic;
+            color: #666;
+        }
+
+        .message.ai .message-bubble hr {
+            border: none;
+            border-top: 1px solid #e1e4e8;
+            margin: 1rem 0;
+        }
+
+        /* Loading animation */
+        .thinking-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #000;
+            border-radius: 50%;
+            animation: thinking-pulse 1.5s ease-in-out infinite;
             margin: 0 auto;
         }
 
-        .faq-item {
-            background: rgba(30, 30, 30, 0.8);
-            margin-bottom: 1.2rem;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(192, 192, 192, 0.1);
+        @keyframes thinking-pulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
         }
 
-        .faq-item:hover {
-            border-color: var(--silver);
+        /* Completion animation - checkmark */
+        .complete-check {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            opacity: 0;
+            animation: fadeInScale 0.4s ease-out forwards;
         }
 
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .complete-check::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
         }
 
-        .faq-question h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--platinum);
-            font-size: 1.2rem;
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        .faq-icon {
-            color: var(--silver);
-            transition: transform 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            color: var(--text-secondary);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* Calendar Section - Clean Style */
-        #calendar {
-            background: linear-gradient(180deg, var(--deep-black) 0%, var(--premium-black) 100%);
-        }
-
-        .calendar-container {
-            background: rgba(30, 30, 30, 0.8);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(192, 192, 192, 0.1);
-        }
-
-        /* Join Section - Clean */
-        #join {
-            background: var(--luxury-black);
+        /* Thinking container styles */
+        .thinking-container {
+            padding: 1rem;
             text-align: center;
+            animation: fadeInUp 0.3s ease-out;
         }
-
-        .join-links {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .premium-join-card {
-            background: rgba(30, 30, 30, 0.8);
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(192, 192, 192, 0.1);
-            text-decoration: none;
-            min-width: 280px;
-        }
-
-        .premium-join-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--silver);
-            background: rgba(30, 30, 30, 0.9);
-        }
-
-        .premium-join-card i {
-            font-size: 3rem;
-            color: var(--silver);
-            margin-bottom: 1.5rem;
-        }
-
-        .premium-join-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--platinum);
-            margin-bottom: 1rem;
-        }
-
-        .premium-join-card p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        /* Careers Section - Clean */
-        #careers {
-            background: var(--deep-black);
-        }
-
-        .careers-content {
-            text-align: center;
-        }
-
-        .careers-intro {
-            font-size: 1.2rem;
-            color: var(--platinum);
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .careers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .luxury-career-card {
-            background: rgba(30, 30, 30, 0.8);
-            padding: 2.5rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(192, 192, 192, 0.1);
-            text-align: center;
-        }
-
-        .luxury-career-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--silver);
-        }
-
-        .luxury-career-card i {
-            font-size: 2.5rem;
-            color: var(--silver);
-            margin-bottom: 1.5rem;
-        }
-
-        .luxury-career-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--platinum);
-            margin-bottom: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            
-            .hero-tagline {
-                font-size: 1.2rem;
-            }
-            
-            .premium-flight-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .chat-window {
-                width: 100%;
-                height: 100vh;
-                border-radius: 0;
-                top: 0;
-                left: 0;
-                transform: none;
-            }
-        }
-
-        /* Admin Button - Clean Style */
-        .admin-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: rgba(30, 30, 30, 0.9);
-            color: var(--text-secondary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            opacity: 0.5;
-            border: 1px solid rgba(192, 192, 192, 0.1);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .admin-btn:hover {
-            opacity: 1;
-            background: var(--silver);
-            color: var(--luxury-black);
-            border-color: var(--silver);
-        }
-
-        /* Loading Animation */
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 2px solid rgba(192, 192, 192, 0.2);
-            border-top: 2px solid var(--silver);
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #000;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 2rem auto;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
-            filter: brightness(1.1);
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover img {
-            filter: brightness(1.3);
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Streaming output animation */
+        .typing-indicator::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Feature sections */
+        .sections {
+            padding: 4rem 2rem;
+            background: #fff;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 6rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .section p {
+            font-size: 1.125rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #000;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Statistics */
+        .stats {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: #fff;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .chat-input {
+                padding: 1.25rem 3.5rem 1.25rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .send-button {
+                width: 40px;
+                height: 40px;
+                right: 6px;
+            }
+
+            .hero.chat-mode .input-container {
+                max-width: calc(100% - 2rem);
+                margin: 0 1rem;
+            }
+
+            .chat-messages {
+                padding: 0 1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Scrollbar styles */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Call-to-action section */
+        .cta-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button.primary {
+            background: #000;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+        }
+
+        .cta-button.secondary:hover {
+            background: #000;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .cta-feature i {
+            color: #4CAF50;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 200px;
+            }
+            
+            .cta-features {
+                grid-template-columns: 1fr;
+                text-align: left;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <!-- Luxury Navigation -->
-    <nav id="navbar">
+    <!-- 声明弹窗 -->
+    <div id="translationNotice" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 1; transition: opacity 0.3s ease-out;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; max-width: 500px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <h3 style="margin-bottom: 1rem; color: #000; font-size: 1.25rem;">服务调整说明</h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.6;">
+                近期本服务刚从中国地区调整为海外服务，部分内容翻译尚未完善，使用时建议开启翻译工具。<br><br>
+                Recently, this service has just been adjusted from China region to overseas service. Some content translations are not yet complete. It is recommended to enable translation tools when using.
+            </p>
+            <button id="closeNotice" style="background: #000; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 500; transition: all 0.3s ease; width: 100%;">
+                我已知晓 / I understand
+            </button>
+        </div>
+    </div>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const notice = document.getElementById('translationNotice');
+            const closeBtn = document.getElementById('closeNotice');
+            
+            // 检查是否已关闭过弹窗（7天内不再显示）
+            const lastClosed = localStorage.getItem('translationNoticeClosed');
+            if (lastClosed && (new Date().getTime() - lastClosed < 7 * 24 * 60 * 60 * 1000)) {
+                notice.style.display = 'none';
+            }
+            
+            // 关闭按钮点击事件
+            closeBtn.addEventListener('click', function() {
+                // 添加入场动画
+                notice.style.opacity = '0';
+                // 等待动画结束后隐藏
+                setTimeout(() => {
+                    notice.style.display = 'none';
+                }, 300);
+                // 记录关闭时间
+                localStorage.setItem('translationNoticeClosed', new Date().getTime().toString());
+            });
+        });
+    </script>
+
+    <!-- Navigation bar -->
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo"><img src="logo.jpg" alt="Square Airways" style="height: 50px; width: auto;"></a>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="TyloAI Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <i class="fas fa-ai" style="display: none;"></i>
+                TyloAI
+            </a>
             <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#flights">Flights</a></li>
-                <li><a href="#calendar">Schedule</a></li>
-                <li><a href="#join">Experience</a></li>
-                <li><a href="#careers">Careers</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#stats">Data</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
+    <!-- Hero section -->
+    <section class="hero" id="hero">
         <div class="hero-content">
-            <h1>Square Airways</h1>
-            <p class="hero-tagline">Serving the US West Coast with High Quality Since 2024</p>
-            <p class="hero-subtitle">Experience Virtual Aviation at Its Finest</p>
-            <a href="#join" class="luxury-cta">Begin Your Journey</a>
+            <!-- Chat messages area -->
+            <div class="chat-messages" id="chatMessages"></div>
+
+            <!-- Input box -->
+            <div class="input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything..." maxlength="2000">
+                <button class="send-button" id="sendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>Our Legacy of Excellence</h2>
-            <div class="about-content">
-                <p class="about-intro">
-                    Since 2024, Square Airways always make sure you are having a comfortable and enjoyable ride, we have amazing service and professional staff. Since 3/20/2024, we have been connecting people all over the US West Coast, Europe, Asia, and the Caribbean, we also have a retro fleet which take you back in the 70th when is the golden age of aviation. Also make sure to check out our subsidiary airline WestLink, we put more regional destination on our network through WestLink, we always make sure you have a safe but yet comfortable flight!
-                </p>
-                <div class="luxury-features">
-                    <div class="luxury-feature">
-                        <i class="fas fa-crown"></i>
-                        <h3>Premium Service</h3>
-                        <p>Experience unparalleled luxury with our professional staff and exceptional in-flight amenities</p>
+    <!-- Video Preview Section -->
+    <section class="video-preview-section">
+        <div class="video-container">
+            <!-- 背景装饰元素 -->
+            <div class="video-bg-decoration">
+                <div class="decoration-circle circle-1"></div>
+                <div class="decoration-circle circle-2"></div>
+                <div class="decoration-line line-1"></div>
+                <div class="decoration-line line-2"></div>
+            </div>
+            
+            <!-- 视频标题区域 -->
+            <div class="video-header">
+                <span class="video-badge">NEW RELEASE</span>
+                <h2 class="video-title">Experience the Future of AI</h2>
+                <p class="video-subtitle">Watch how TyloAI transforms your workflow with intelligent automation</p>
+            </div>
+            
+            <!-- 视频播放器容器 -->
+            <div class="video-player-wrapper">
+                <!-- 左侧装饰文字 -->
+                <div class="video-side-text left">
+                    <div class="vertical-text">INNOVATION</div>
+                </div>
+                
+                <!-- 中间视频播放器 -->
+                <div class="video-player-container">
+                    <!-- 视频边框装饰 -->
+                    <div class="video-frame">
+                        <div class="frame-corner top-left"></div>
+                        <div class="frame-corner top-right"></div>
+                        <div class="frame-corner bottom-left"></div>
+                        <div class="frame-corner bottom-right"></div>
                     </div>
-                    <div class="luxury-feature">
-                        <i class="fas fa-globe-americas"></i>
-                        <h3>Global Network</h3>
-                        <p>Connecting the US West Coast with Europe, Asia, and the Caribbean through our extensive routes</p>
+                    
+                    <!-- 视频播放器 -->
+                    <video class="preview-video" id="previewVideo" poster="" controls>
+                        <source src="宣传片.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- 自定义播放按钮（覆盖层） -->
+                    <div class="video-overlay" id="videoOverlay">
+                        <div class="play-button-custom">
+                            <svg width="80" height="80" viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="39" stroke="#000" stroke-width="2" fill="rgba(255,255,255,0.95)"/>
+                                <polygon points="32,25 32,55 52,40" fill="#000"/>
+                            </svg>
+                        </div>
+                        <div class="overlay-text">WATCH PREVIEW</div>
                     </div>
-                    <div class="luxury-feature">
-                        <i class="fas fa-history"></i>
-                        <h3>Retro Fleet</h3>
-                        <p>Journey back to the golden age of aviation with our carefully curated vintage aircraft collection</p>
-                    </div>
+                </div>
+                
+                <!-- 右侧装饰文字 -->
+                <div class="video-side-text right">
+                    <div class="vertical-text">EXCELLENCE</div>
+                </div>
+            </div>
+            
+            <!-- 视频信息栏 -->
+            <div class="video-info-bar">
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>2:30 min</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-video"></i>
+                    <span>4K Quality</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-language"></i>
+                    <span>Multi-language</span>
+                </div>
+            </div>
+            
+            <!-- 底部引导文字 -->
+            <div class="video-cta">
+                <p>Discover how leading companies are leveraging TyloAI to accelerate innovation</p>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Flight Data Section -->
-    <section id="flights">
-        <div class="container">
-            <h2>Our flights</h2>
-            <div class="flight-grid" id="flightGrid">
-                <!-- Flights will be loaded here -->
-                <div class="loader"></div>
-            </div>
-        </div>
-    </section>
+    <!-- Video Preview Section CSS -->
+    <style>
+        /* Video Preview Section Styles */
+        .video-preview-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
 
-    <!-- Calendar Section -->
-    <section id="calendar">
-        <div class="container">
-            <h2>Flight Host Portal</h2>
-            <div class="calendar-container">
-                <div class="host-login">
-                    <h3 style="font-family: 'Playfair Display', serif; color: var(--silver); margin-bottom: 2rem;">Exclusive Host Access</h3>
-                    <form class="login-form" id="hostLoginForm">
-                        <input type="text" id="hostUsername" placeholder="Username" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; background: var(--charcoal); border: 1px solid rgba(192, 192, 192, 0.2); border-radius: 25px; color: var(--platinum);">
-                        <input type="password" id="hostPassword" placeholder="Password" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; background: var(--charcoal); border: 1px solid rgba(192, 192, 192, 0.2); border-radius: 25px; color: var(--platinum);">
-                        <button type="submit" class="luxury-cta" style="width: 100%;">Access Portal</button>
-                    </form>
+        .video-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 背景装饰元素 */
+        .video-bg-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .decoration-circle {
+            position: absolute;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 50%;
+        }
+
+        .circle-1 {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            left: -100px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        .decoration-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.03), transparent);
+            height: 1px;
+            width: 100%;
+        }
+
+        .line-1 {
+            top: 20%;
+            animation: slideRight 10s linear infinite;
+        }
+
+        .line-2 {
+            bottom: 30%;
+            animation: slideLeft 8s linear infinite;
+        }
+
+        @keyframes slideRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes slideLeft {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* 视频标题区域 */
+        .video-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .video-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #000;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .video-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .video-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 视频播放器容器 */
+        .video-player-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        /* 侧边装饰文字 */
+        .video-side-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.03);
+            letter-spacing: 0.5rem;
+            user-select: none;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .video-side-text.left {
+            animation-delay: 0.5s;
+        }
+
+        .video-side-text.right {
+            animation-delay: 0.7s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* 视频播放器主容器 */
+        .video-player-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16 / 9;
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* 视频边框装饰 */
+        .video-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .frame-corner {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #000;
+        }
+
+        .frame-corner.top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .frame-corner.top-right {
+            top: 20px;
+            right: 20px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .frame-corner.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .frame-corner.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* 视频元素 */
+        .preview-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+        }
+
+        /* 自定义播放按钮覆盖层 */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-overlay:hover {
+            background: rgba(255,255,255,0.95);
+        }
+
+        .video-overlay:hover .play-button-custom {
+            transform: scale(1.1);
+        }
+
+        .video-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-button-custom {
+            transition: transform 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .overlay-text {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #000;
+        }
+
+        /* 视频信息栏 */
+        .video-info-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .info-item i {
+            color: #000;
+            font-size: 1.1rem;
+        }
+
+        /* 底部引导 */
+        .video-cta {
+            text-align: center;
+            margin-top: 3rem;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .video-cta p {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .scroll-indicator {
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .video-side-text {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .video-side-text {
+                display: none;
+            }
+            
+            .video-player-container {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-title {
+                font-size: 2rem;
+            }
+            
+            .video-subtitle {
+                font-size: 1rem;
+            }
+            
+            .frame-corner {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .frame-corner.top-left,
+            .frame-corner.top-right {
+                top: 10px;
+            }
+            
+            .frame-corner.bottom-left,
+            .frame-corner.bottom-right {
+                bottom: 10px;
+            }
+            
+            .frame-corner.top-left,
+            .frame-corner.bottom-left {
+                left: 10px;
+            }
+            
+            .frame-corner.top-right,
+            .frame-corner.bottom-right {
+                right: 10px;
+            }
+            
+            .video-info-bar {
+                gap: 1.5rem;
+            }
+            
+            .info-item {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+    <!-- Video Preview Section JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('previewVideo');
+            const overlay = document.getElementById('videoOverlay');
+            
+            // 点击覆盖层播放视频
+            overlay.addEventListener('click', function() {
+                overlay.classList.add('hidden');
+                video.play();
+            });
+            
+            // 视频暂停时显示覆盖层
+            video.addEventListener('pause', function() {
+                if (video.currentTime < video.duration) {
+                    overlay.classList.remove('hidden');
+                }
+            });
+            
+            // 视频结束时显示覆盖层
+            video.addEventListener('ended', function() {
+                overlay.classList.remove('hidden');
+                video.currentTime = 0;
+            });
+        });
+    </script>
+    
+    <!-- Feature highlights -->
+    <section class="sections" id="features">
+        <div class="section">
+            <div class="section-header">
+                <h2>Powerful AI Capabilities</h2>
+                <p>Integrating cutting-edge AI technology to provide you with comprehensive intelligent service experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Smart Conversation</h3>
+                    <p>Supports natural language understanding with fluid multi-turn conversations, enabling AI to truly understand your needs</p>
                 </div>
-                <div id="calendar-host" style="display: none;">
-                    <!-- Host scheduling interface will appear here -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Memory</h3>
+                    <p>Advanced memory capabilities that can accurately analyze your characteristics and personality for personalized responses</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Section -->
-    <section id="join">
-        <div class="container">
-            <h2>Join the Experience</h2>
-            <div class="join-links">
-                <a href="https://www.roblox.com" target="_blank" class="premium-join-card">
-                    <i class="fas fa-gamepad"></i>
-                    <h3>Play on Roblox</h3>
-                    <p>Experience the pinnacle of virtual aviation</p>
-                </a>
-                <a href="https://discord.gg/wtgPTvGkZy" target="_blank" class="premium-join-card">
-                    <i class="fab fa-discord"></i>
-                    <h3>Join Our Community</h3>
-                    <p>Connect with elite virtual aviators worldwide</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Careers Section -->
-    <section id="careers">
-        <div class="container">
-            <h2>Join Our Distinguished Team</h2>
-            <div class="careers-content">
-                <p class="careers-intro">We're always seeking exceptional talent to elevate the Square Airways experience. Whether you're a visionary developer, creative designer, or passionate aviation enthusiast, there's a place for you in our prestigious team.</p>
-                <div class="careers-grid">
-                    <div class="luxury-career-card">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-code"></i>
-                        <h3>Elite Developers</h3>
-                        <p>Shape the future of luxury virtual aviation</p>
                     </div>
-                    <div class="luxury-career-card">
-                        <i class="fas fa-paint-brush"></i>
-                        <h3>Creative Designers</h3>
-                        <p>Craft stunning visual experiences</p>
-                    </div>
-                    <div class="luxury-career-card">
-                        <i class="fas fa-headset"></i>
-                        <h3>Premium Support</h3>
-                        <p>Deliver world-class customer service</p>
-                    </div>
+                    <h3>Code Assistant</h3>
+                    <p>Professional programming assistance supporting multiple programming languages, code explanation, and optimization suggestions</p>
                 </div>
-                <a href="https://discord.gg/wtgPTvGkZy" target="_blank" class="luxury-cta" style="margin-top: 3rem;">Apply on Discord</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How do I apply for staff?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>Join our discord community server at https://discord.gg/wtgPTvGkZy then you will get noticed once staff apply is opened!</p>
-                    </div>
+                    <h3>Document Processing</h3>
+                    <p>Intelligent document analysis, content summarization, and format conversion to make document processing more efficient</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How to attend our flight?</h3>
-                        <i class="fas fa-plus faq-icon"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>Make sure you check our flight calendar, and join 15 minute early, our flight is usually in EST or PST timezones.</p>
-                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>Powerful data insight capabilities, chart generation, trend analysis, and decision-making support</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>I have more questions</h3>
-                        <i class="fas fa-plus faq-icon"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>Join our discord server at https://discord.gg/wtgPTvGkZy and open a ticket! A high rank will be glad to help you! Or if a high rank is not available, try out our AI bot!</p>
-                    </div>
+                    <h3>Multi-language Support</h3>
+                    <p>Supports multiple global languages with real-time translation for barrier-free cross-language communication</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Premium Footer -->
-    <footer>
-        <div class="container">
+
+    <!-- Customer showcase -->
+    <section class="customer-showcase">
+        <div class="showcase-container">
+            <div class="showcase-header">
+                <h2>Trusted by the World's Most Innovative Companies</h2>
+                <p>TyloAI supports these ecosystem integrations to streamline your workflow</p>
+            </div>
+            
+            <div class="logo-slider-wrapper">
+                <div class="logo-slider">
+                    <!-- First set of logos -->
+                    <div class="logo-track">
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                        </div>
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft">
+                        </div>
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                        </div>
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                        </div>
+                    </div>
+                    
+                    <!-- Second set of logos (copy for seamless loop) -->
+                    <div class="logo-track">
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                        </div>
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft">
+                        </div>
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                        </div>
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-stats">
+                <div class="showcase-stat">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-desc">Enterprise Clients</div>
+                </div>
+                <div class="showcase-stat">
+                    <div class="stat-value">1k+</div>
+                    <div class="stat-desc">Active Users</div>
+                </div>
+                <div class="showcase-stat">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-desc">Service Availability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS styles -->
+    <style>
+    /* Customer showcase section */
+    .customer-showcase {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 4rem 2rem;
+    }
+
+    .customer-showcase::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.02) 0%, transparent 70%),
+                    radial-gradient(circle at 70% 50%, rgba(0,0,0,0.02) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .showcase-container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .showcase-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .showcase-header h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .showcase-header p {
+        font-size: 1.25rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* Logo slider container */
+    .logo-slider-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin: 4rem 0;
+        padding: 2rem 0;
+    }
+
+    .logo-slider-wrapper::before,
+    .logo-slider-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .logo-slider-wrapper::before {
+        left: 0;
+        background: linear-gradient(to right, #fafafa 0%, transparent 100%);
+    }
+
+    .logo-slider-wrapper::after {
+        right: 0;
+        background: linear-gradient(to left, #fafafa 0%, transparent 100%);
+    }
+
+    .logo-slider {
+        display: flex;
+        animation: slideLeft 30s linear infinite;
+    }
+
+    .logo-track {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        padding: 0 2rem;
+    }
+
+    .logo-item {
+        flex-shrink: 0;
+        width: 180px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+    }
+
+    .logo-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .logo-item img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+    }
+
+    .logo-item:hover img {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    /* Logo placeholder (when image loading fails) */
+    .logo-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f0f0;
+        border-radius: 8px;
+        color: #666;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    /* Sliding animation */
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Showcase statistics */
+    .showcase-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        max-width: 800px;
+        margin: 4rem auto 0;
+        text-align: center;
+    }
+
+    .showcase-stat {
+        animation: fadeInUp 1s ease-out;
+        animation-fill-mode: both;
+    }
+
+    .showcase-stat:nth-child(1) { animation-delay: 0.2s; }
+    .showcase-stat:nth-child(2) { animation-delay: 0.4s; }
+    .showcase-stat:nth-child(3) { animation-delay: 0.6s; }
+
+    .stat-value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-desc {
+        font-size: 1.125rem;
+        color: #666;
+        font-weight: 500;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1024px) {
+        .showcase-header h2 {
+            font-size: 2.5rem;
+        }
+        
+        .logo-track {
+            gap: 3rem;
+        }
+        
+        .logo-item {
+            width: 150px;
+            height: 70px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .customer-showcase {
+            min-height: auto;
+            padding: 4rem 1rem;
+        }
+        
+        .showcase-header h2 {
+            font-size: 2rem;
+        }
+        
+        .showcase-header p {
+            font-size: 1.1rem;
+        }
+        
+        .logo-item {
+            width: 120px;
+            height: 60px;
+            padding: 1rem;
+        }
+        
+        .logo-track {
+            gap: 2rem;
+        }
+        
+        .showcase-stats {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+        }
+        
+        /* Slow down sliding on mobile */
+        .logo-slider {
+            animation-duration: 40s;
+        }
+    }
+
+    /* Pause animation (when user hovers) */
+    .logo-slider:hover {
+        animation-play-state: paused;
+    }
+
+    /* Dark mode support (optional) */
+    @media (prefers-color-scheme: dark) {
+        .customer-showcase {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+        
+        .showcase-header h2 {
+            color: #fff;
+        }
+        
+        .showcase-header p {
+            color: #aaa;
+        }
+        
+        .logo-item {
+            background: #2a2a2a;
+            border: 1px solid #333;
+        }
+        
+        .logo-item img {
+            filter: grayscale(100%) invert(1);
+        }
+        
+        .logo-item:hover img {
+            filter: grayscale(0%) invert(0);
+        }
+        
+        .stat-value {
+            color: #fff;
+        }
+        
+        .stat-desc {
+            color: #aaa;
+        }
+        
+        .logo-slider-wrapper::before {
+            background: linear-gradient(to right, #1a1a1a 0%, transparent 100%);
+        }
+        
+        .logo-slider-wrapper::after {
+            background: linear-gradient(to left, #1a1a1a 0%, transparent 100%);
+        }
+    }
+    </style>
+
+    <!-- Call-to-action section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Experience TyloAI's Powerful Features?</h2>
+            <p>Register now to unlock more premium features and enjoy personalized AI service experience</p>
+            <div class="cta-buttons">
+                <a href="login.html" class="cta-button primary">Login Now</a>
+                <a href="chat-guest.html" class="cta-button secondary">Guest Mode</a>
+            </div>
+            <div class="cta-features">
+                <div class="cta-feature">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Personalized Memory</span>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Advanced Model Access</span>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Priority Response Speed</span>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>History Preservation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Square Airways</h3>
-                    <p>Serving the US West Coast with High Quality Since 2024</p>
-                    <p>Experience the pinnacle of virtual aviation excellence</p>
+                    <h3>TyloAI</h3>
+                    <p style="color: #ccc; line-height: 1.6;">
+                        Committed to providing users with the most intelligent, secure, and convenient AI service experience. We believe AI will change the world and make life better.
+                    </p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="#about">About Us</a><br>
-                    <a href="#flights">Our Fleet</a><br>
-                    <a href="https://discord.gg/wtgPTvGkZy" target="_blank">Discord Community</a><br>
-                    <a href="#careers">Career Opportunities</a>
-                    <a href="https://youtu.be/PRUqzVsGEFk" target="_blank">Youtube</a>
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="login.html">AI Conversation</a></li>
+                        <li><a href="login.html">Image Understanding</a></li>
+                        <li><a href="login.html">Code Assistant</a></li>
+                        <li><a href="login.html">API Services</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Legal Information</h3>
-                    <p><strong>Disclaimer:</strong> Square Airways is a virtual airline game studio operating exclusively within Roblox. We are not affiliated with any real-world airlines.</p>
-                    <p><strong>Copyright:</strong> © 2025 Square Airways Game Studio. All rights reserved. All trademarks are property of their respective owners.</p>
+                    <h3>Privacy & Terms</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="memory-guide.html">Memory Guide</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <a href="https://www.roblox.com/communities/34669773/Square-Airways#!/about" target="_blank"><i class="fas fa-gamepad"></i> Roblox Experience</a><br>
-                    <a href="https://discord.gg/wtgPTvGkZy" target="_blank"><i class="fab fa-discord"></i> Discord Community</a>
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@tyloai.com">info@tyloai.com</a></li>
+                        <li><a href="support.html">Online Support</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Developer Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Disclaimer</h3>
+                <div style="color: #ccc; line-height: 1.6;">
+                    <p>本网站不提供对中国大陆地区的访问服务。</p>
+                    <p>This website does not provide access services to mainland China.</p>
+                    <br>
+                    <p>近期本服务刚从中国地区调整为海外服务，部分内容翻译尚未完善，使用时建议开启翻译工具。</p>
+                    <p>Recently, this service has just been adjusted from China region to overseas service. Some content translations are not yet complete. It is recommended to enable translation tools when using.</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Square Airways Game Studio. Virtual flights, real excellence.</p>
-                <p class="powered-by">Powered by <a href="http://www.tenyun.ltd" target="_blank">Tenyun Tech</a></p>
+                <p>&copy; 2025 TyloAI. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Admin Portal Access -->
-    <a href="admin.html" class="admin-btn">Admin Portal</a>
-
-    <!-- Chat Widget -->
-    <div class="chat-widget">
-        <button class="chat-button" onclick="toggleChat()">
-            <i class="fas fa-comments"></i>
-        </button>
-        <div class="chat-overlay" id="chatOverlay" onclick="toggleChat()"></div>
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                <h3>Square Airways Support</h3>
-                <button class="chat-close" onclick="toggleChat()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot">
-                    <div class="message-content">
-                        Welcome to Square Airways customer support! I'm here to help you with any questions about our virtual airline. How may I assist you today?
-                    </div>
-                </div>
-            </div>
-            <div class="chat-input-container">
-                <div class="chat-options">
-                    <button class="response-option active" data-length="short" onclick="setResponseLength(this)">Short Answer</button>
-                    <button class="response-option" data-length="long" onclick="setResponseLength(this)">Long Answer</button>
-                </div>
-                <div class="chat-input-wrapper">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
-                    <button class="chat-send" onclick="sendMessage()">Send</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-
     <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        function toggleChat() {
-            const chatWindow = document.getElementById('chatWindow');
-            const chatOverlay = document.getElementById('chatOverlay');
-            
-            chatWindow.classList.toggle('active');
-            chatOverlay.classList.toggle('active');
-            
-            if (chatWindow.classList.contains('active')) {
-                document.getElementById('chatInput').focus();
-            }
-        }
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDeV6WClmPOjlIlKYnrbjDmXzPH8xfZGc0",
-            authDomain: "ifou-aed8d.firebaseapp.com",
-            projectId: "ifou-aed8d",
-            storageBucket: "ifou-aed8d.firebasestorage.app",
-            messagingSenderId: "102878943260",
-            appId: "1:102878943260:web:cbfb590fe8fba8d52027d9",
-            measurementId: "G-D8B70MK64T"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
-        // Flight data
-        const flightData = [
-            {
-                number: "SQ 421",
-                route: "PVG - SEA",
-                duration: "11hr",
-                aircraft: "B777-9X",
-                amenities: ["Wifi", "IFE", "Service", "USB"]
-            },
-            {
-                number: "SQ 021",
-                route: "PVG - SEA",
-                duration: "11hr",
-                aircraft: "B787-9",
-                amenities: ["Wifi", "IFE", "Service", "USB"]
-            },
-            {
-                number: "SQ 288",
-                route: "PVG - SEA",
-                duration: "14hr",
-                aircraft: "A330-300",
-                amenities: ["Wifi", "IFE", "Service", "USB"]
-            },
-            {
-                number: "SQ 281",
-                route: "PVG - SEA",
-                duration: "14hr",
-                aircraft: "A330-900neo",
-                amenities: ["Wifi", "IFE", "Service", "USB"]
-            },
-            {
-                number: "SQ 290 & SQ 2215",
-                route: "PVG - SLC - SEA",
-                duration: "18hr",
-                aircraft: "A330-900neo & B737-8MAX",
-                amenities: ["Wifi", "IFE", "Service", "USB"]
-            },
-            {
-                number: "SQ 295 & SQ2293",
-                route: "PVG - SAN - SEA",
-                duration: "22hr",
-                aircraft: "A330-300 & A320-200neo",
-                amenities: ["Wifi", "IFE", "Service", "USB"]
-            },
-            {
-                number: "SQ 025",
-                route: "SXM - CDG",
-                duration: "11hr",
-                aircraft: "B787-9",
-                amenities: ["Wifi", "IFE", "Service", "USB"]
-            }
-        ];
-
-        // Load flights
-        function loadFlights() {
-            const flightGrid = document.getElementById('flightGrid');
-            flightGrid.innerHTML = '';
-            
-            flightData.forEach(flight => {
-                const flightCard = document.createElement('div');
-                flightCard.className = 'premium-flight-card';
-                flightCard.innerHTML = `
-                    <div>
-                        <div class="flight-number">${flight.number}</div>
-                        <div class="flight-details">
-                            <span><i class="fas fa-clock"></i> ${flight.duration}</span>
-                            <span><i class="fas fa-plane"></i> ${flight.aircraft}</span>
-                        </div>
-                    </div>
-                    <div class="flight-route">${flight.route}</div>
-                    <div class="premium-amenities">
-                        ${flight.amenities.map(amenity => `
-                            <div class="premium-amenity">
-                                <i class="fas fa-check-circle"></i>
-                                ${amenity}
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-                flightGrid.appendChild(flightCard);
-            });
-
-            // Add placeholder for more routes
-            const placeholder = document.createElement('div');
-            placeholder.className = 'premium-flight-card';
-            placeholder.style.textAlign = 'center';
-            placeholder.style.opacity = '0.6';
-            placeholder.innerHTML = `
-                <div style="grid-column: 1 / -1;">
-                    <i class="fas fa-plus-circle" style="font-size: 2.5rem; color: var(--silver);"></i>
-                    <p style="margin-top: 1rem; color: var(--platinum);">More prestigious routes coming soon...</p>
-                </div>
-            `;
-            flightGrid.appendChild(placeholder);
-        }
-
-        // Load flights on page load
-        loadFlights();
-
         // Chat functionality
-        let responseLength = 'short';
-        let chatHistory = [];
+        class ChatInterface {
+            constructor() {
+                this.messages = [
+                    {
+                        role: 'system',
+                        content: 'You are TyloAI, an intelligent, friendly, and professional AI assistant. You have the following characteristics:\n1. Your name is TyloAI\n2. You support multimodal interaction and can understand text, images, etc.\n3. You have contextual memory capabilities and can remember conversation history\n4. You respond to user questions in a friendly and professional manner\n5. When users ask about your identity, please introduce yourself as TyloAI\n6. You are committed to providing users with the best AI service experience\nPlease always maintain a friendly and professional attitude, and mention that you are TyloAI when appropriate.'
+                    }
+                ];
+                this.isLoading = false;
+                this.apiKey = 'sk-e1ed90c2effc4415beeee85845f66d05';
+                this.apiUrl = 'https://api.deepseek.com/chat/completions';
+                this.init();
+            }
 
-        function setResponseLength(button) {
-            document.querySelectorAll('.response-option').forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            responseLength = button.dataset.length;
-        }
+            init() {
+                this.chatInput = document.getElementById('chatInput');
+                this.sendButton = document.getElementById('sendButton');
+                this.chatMessages = document.getElementById('chatMessages');
+                this.hero = document.getElementById('hero');
 
-        async function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            if (!message) return;
-
-            // Add user message
-            addMessage(message, 'user');
-            input.value = '';
-
-            // Add to chat history
-            chatHistory.push({ role: 'user', content: message });
-
-            // Show typing indicator
-            const typingDiv = addMessage('...', 'bot');
-
-            try {
-                // Call DeepSeek API with enhanced system prompt
-                const response = await fetch('https://api.deepseek.com/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer sk-e1ed90c2effc4415beeee85845f66d05'
-                    },
-                    body: JSON.stringify({
-                        model: 'deepseek-chat',
-                        messages: [
-                            {
-                                role: 'system',
-                                content: `You are a premium customer service representative for Square Airways, a virtual airline in Roblox. You have been serving the US West Coast with high quality since 2024. 
-                                
-                                CRITICAL INFORMATION - ALWAYS BE ACCURATE:
-                                - Founded in 2024, operating since March 20, 2024 (3/20/2024)
-                                - Virtual airline operating ONLY in Roblox (NOT real world)
-                                - Serves US West Coast, Europe, Asia, and the Caribbean
-                                - Has a retro fleet from the golden age of aviation (1970s)
-                                - Subsidiary airline: WestLink (for regional destinations)
-                                - Professional staff and amazing service
-                                - Discord community: https://discord.gg/wtgPTvGkZy
-                                - Flights usually scheduled in EST or PST timezones
-                                - Players should join 15 minutes early for flights
-                                - Staff applications open periodically - check Discord for announcements
-                                
-                                ROUTES (be accurate):
-                                - SQ 421: PVG-SEA (11hr, B777-9X)
-                                - SQ 021: PVG-SEA (11hr, B787-9)
-                                - SQ 288: PVG-SEA (14hr, A330-300)
-                                - SQ 281: PVG-SEA (14hr, A330-900neo)
-                                - SQ 290 & SQ 2215: PVG-SLC-SEA (18hr, A330-900neo & B737-8MAX)
-                                - SQ 295 & SQ2293: PVG-SAN-SEA (22hr, A330-300 & A320-200neo)
-                                - SQ 025: SXM-CDG (11hr, B787-9)
-                                
-                                IMPORTANT GUIDELINES:
-                                - This is a VIRTUAL airline in ROBLOX only - not real world
-                                - Always provide accurate information based on the facts above
-                                - Do not make up routes, times, or features not listed
-                                - For questions beyond this information, direct to Discord
-                                - Be professional and maintain luxury brand image
-                                
-                                For human support or complex inquiries, direct users to our Discord server at https://discord.gg/wtgPTvGkZy
-                                
-                                Respond in ${responseLength === 'long' ? 'detailed, comprehensive' : 'brief, concise'} manner.
-                                Maintain a luxurious, professional tone befitting our premium brand.`
-                            },
-                            ...chatHistory
-                        ],
-                        stream: true
-                    })
+                this.chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        this.sendMessage();
+                    }
                 });
 
-                // Remove typing indicator
-                typingDiv.remove();
+                this.sendButton.addEventListener('click', () => {
+                    this.sendMessage();
+                });
 
-                if (!response.ok) {
-                    throw new Error('API request failed');
+                // Auto-focus input box
+                this.chatInput.focus();
+            }
+
+            async sendMessage() {
+                const message = this.chatInput.value.trim();
+                if (!message || this.isLoading) return;
+
+                // Switch to chat mode
+                this.hero.classList.add('chat-mode');
+
+                // Add user message
+                this.addMessage('user', message);
+                this.messages.push({ role: 'user', content: message });
+                
+                this.chatInput.value = '';
+                this.setLoading(true);
+
+                try {
+                    // Call DeepSeek API
+                    await this.callDeepSeekAPI();
+                } catch (error) {
+                    this.addMessage('ai', 'Sorry, I encountered some technical issues. Please check your network connection or try again later.');
+                    console.error('DeepSeek API Error:', error);
+                } finally {
+                    this.setLoading(false);
                 }
+            }
 
-                // Handle streaming response
-                const reader = response.body.getReader();
-                const decoder = new TextDecoder();
-                let botMessage = '';
-                let messageDiv = null;
+            async callDeepSeekAPI() {
+                try {
+                    const response = await fetch(this.apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${this.apiKey}`
+                        },
+                        body: JSON.stringify({
+                            model: 'deepseek-chat',
+                            messages: this.messages,
+                            stream: true,
+                            max_tokens: 8192,
+                            temperature: 0.7,
+                            top_p: 0.9
+                        })
+                    });
 
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
+                    if (!response.ok) {
+                        throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+                    }
 
-                    const chunk = decoder.decode(value);
-                    const lines = chunk.split('\n');
+                    // Handle streaming response
+                    const reader = response.body.getReader();
+                    const decoder = new TextDecoder();
+                    
+                    // Create thinking animation container
+                    const thinkingDiv = document.createElement('div');
+                    thinkingDiv.className = 'message ai';
+                    thinkingDiv.innerHTML = '<div class="thinking-container"><div class="thinking-dot"></div></div>';
+                    this.chatMessages.appendChild(thinkingDiv);
+                    this.scrollToBottom();
 
-                    for (const line of lines) {
-                        if (line.startsWith('data: ')) {
-                            const data = line.slice(6);
-                            if (data === '[DONE]') continue;
+                    // Delay creating the actual message container
+                    await new Promise(resolve => setTimeout(resolve, 500));
 
-                            try {
-                                const parsed = JSON.parse(data);
-                                const content = parsed.choices?.[0]?.delta?.content;
-                                if (content) {
-                                    botMessage += content;
-                                    if (!messageDiv) {
-                                        messageDiv = addMessage(botMessage, 'bot');
-                                    } else {
-                                        messageDiv.querySelector('.message-content').textContent = botMessage;
+                    // Create AI message container
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'message ai';
+
+                    const bubbleDiv = document.createElement('div');
+                    bubbleDiv.className = 'message-bubble';
+
+                    messageDiv.appendChild(bubbleDiv);
+
+                    // Replace thinking animation with real message
+                    thinkingDiv.replaceWith(messageDiv);
+                    this.scrollToBottom();
+
+                    let aiResponse = '';
+                    let buffer = '';
+
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+
+                        buffer += decoder.decode(value, { stream: true });
+                        const lines = buffer.split('\n');
+                        buffer = lines.pop(); // Keep incomplete lines
+
+                        for (const line of lines) {
+                            if (line.trim() === '') continue;
+                            if (line.startsWith('data: ')) {
+                                const data = line.slice(6);
+                                if (data === '[DONE]') continue;
+                                
+                                try {
+                                    const json = JSON.parse(data);
+                                    const content = json.choices?.[0]?.delta?.content;
+                                    if (content) {
+                                        aiResponse += content;
+                                        bubbleDiv.textContent = aiResponse;
+                                        this.scrollToBottom();
                                     }
+                                } catch (e) {
+                                    console.warn('JSON parsing failed:', e);
                                 }
-                            } catch (e) {
-                                // Skip invalid JSON
                             }
                         }
                     }
-                }
 
-                // Add to chat history
-                chatHistory.push({ role: 'assistant', content: botMessage });
+                    // Remove typing indicator
+                    // Show completion animation
+                    const checkDiv = document.createElement('div');
+                    checkDiv.className = 'thinking-container';
+                    checkDiv.innerHTML = '<div class="complete-check"></div>';
+                    messageDiv.insertBefore(checkDiv, bubbleDiv);
 
-            } catch (error) {
-                // Remove typing indicator if still present
-                if (typingDiv.parentNode) {
-                    typingDiv.remove();
+                    // Hide checkmark after 1 second
+                    setTimeout(() => {
+                        checkDiv.style.display = 'none';
+                    }, 1000);
+                    bubbleDiv.classList.remove('typing-indicator');
+                    
+                    // Process Markdown format
+                    if (aiResponse) {
+                        bubbleDiv.innerHTML = this.formatMarkdown(aiResponse);
+                        this.messages.push({ role: 'assistant', content: aiResponse });
+                    }
+
+                } catch (error) {
+                    console.error('DeepSeek API call failed:', error);
+                    throw error;
                 }
+            }
+
+            addMessage(sender, text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}`;
                 
-                // Fallback response
-                addMessage('I apologize for the inconvenience. For immediate assistance, please join our Discord community at https://discord.gg/wtgPTvGkZy where our support team will be happy to help you!', 'bot');
+                const bubbleDiv = document.createElement('div');
+                bubbleDiv.className = 'message-bubble';
+                bubbleDiv.textContent = text;
+                
+                messageDiv.appendChild(bubbleDiv);
+                this.chatMessages.appendChild(messageDiv);
+                this.scrollToBottom();
+            }
+
+            setLoading(loading) {
+                this.isLoading = loading;
+                this.sendButton.disabled = loading;
+                
+                if (loading) {
+                    this.sendButton.innerHTML = '<div class="loading"></div>';
+                } else {
+                    this.sendButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+                }
+            }
+
+            scrollToBottom() {
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+
+            // Markdown formatting function
+            formatMarkdown(text) {
+                // Escape HTML
+                text = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                
+                // Code block processing
+                text = text.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+                    const language = lang || 'text';
+                    return `<pre><div class="code-header">${language}</div><code>${code.trim()}</code></pre>`;
+                });
+                
+                // Inline code
+                text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+                
+                // Headers
+                text = text.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+                text = text.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+                text = text.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+                
+                // Bold and italic
+                text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                text = text.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+                
+                // Horizontal rule
+                text = text.replace(/^---$/gm, '<hr>');
+                
+                // Blockquotes
+                text = text.replace(/^> (.*)$/gm, '<blockquote>$1</blockquote>');
+                
+                // Unordered lists
+                text = text.replace(/^\* (.*)$/gm, '<li>$1</li>');
+                text = text.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+                
+                // Ordered lists
+                text = text.replace(/^\d+\. (.*)$/gm, '<li>$1</li>');
+                
+                // Table processing (simple table format)
+                const tableRegex = /(\|[^|\n]+\|[^|\n]*\n)+/g;
+                text = text.replace(tableRegex, (match) => {
+                    const rows = match.trim().split('\n');
+                    let tableHTML = '<table>';
+                    
+                    rows.forEach((row, index) => {
+                        const cells = row.split('|').filter(cell => cell.trim());
+                        const tag = index === 0 ? 'th' : 'td';
+                        
+                        if (index === 1 && row.includes('---')) return; // Skip separator row
+                        
+                        tableHTML += '<tr>';
+                        cells.forEach(cell => {
+                            tableHTML += `<${tag}>${cell.trim()}</${tag}>`;
+                        });
+                        tableHTML += '</tr>';
+                    });
+                    
+                    tableHTML += '</table>';
+                    return tableHTML;
+                });
+                
+                // Paragraph processing
+                text = text.replace(/\n\n/g, '</p><p>');
+                text = '<p>' + text + '</p>';
+                
+                // Clean up empty paragraphs
+                text = text.replace(/<p><\/p>/g, '');
+                text = text.replace(/<p>\s*<\/p>/g, '');
+                
+                return text;
             }
         }
 
-        function addMessage(content, sender) {
-            const messagesContainer = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            messageDiv.innerHTML = `<div class="message-content">${content}</div>`;
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            return messageDiv;
-        }
-
-        // Enter key to send message
-        document.getElementById('chatInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
+        // Initialize chat interface
+        document.addEventListener('DOMContentLoaded', () => {
+            new ChatInterface();
         });
 
-        // FAQ functionality
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.querySelector('.faq-question').addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
+        // Navigation bar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
         });
 
         // Smooth scrolling
@@ -1458,19 +2145,46 @@
             });
         });
 
-        // Host login (simplified for this version)
-        document.getElementById('hostLoginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('hostUsername').value;
-            const password = document.getElementById('hostPassword').value;
+        // Statistics number animation
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-            if (username === 'SQ_Staff' && password === 'SQstaff1234') {
-                alert('Login successful! Full scheduling interface would load here.');
-                // In a full implementation, this would show the scheduling interface
-            } else {
-                alert('Invalid credentials');
-            }
-        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        animateNumber(stat);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        function animateNumber(element) {
+            const text = element.textContent;
+            const number = parseInt(text.replace(/[^\d]/g, ''));
+            const suffix = text.replace(/[\d]/g, '');
+            
+            if (isNaN(number)) return;
+            
+            let current = 0;
+            const increment = number / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= number) {
+                    current = number;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 20);
+        }
     </script>
 </body>
 </html>

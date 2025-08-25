@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - TyloAI</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #F9F9F9; }
+        .dark { background-color: #1F2937; }
+        .cookie-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .dark .cookie-card {
+            background: #2D3748;
+        }
+        .cookie-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .cookie-necessary {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+        .dark .cookie-necessary {
+            background-color: #14532d;
+            color: #86efac;
+        }
+        .cookie-functional {
+            background-color: #dbeafe;
+            color: #2563eb;
+        }
+        .dark .cookie-functional {
+            background-color: #1e3a8a;
+            color: #93c5fd;
+        }
+        .cookie-analytics {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        .dark .cookie-analytics {
+            background-color: #78350f;
+            color: #fcd34d;
+        }
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 1000;
+            max-width: 500px;
+        }
+        .dark .cookie-banner {
+            background: #1F2937;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white min-h-screen">
+    <!-- Top Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="logo.png" alt="TyloAI" class="w-8 h-8 mr-3 rounded-full">
+                    <h1 class="text-xl font-semibold">Cookie Policy</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    <a href="chat.html" class="text-blue-600 hover:text-blue-700">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Header Explanation -->
+        <div class="cookie-card bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-cookie-bite text-3xl text-purple-500 mr-4"></i>
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">About Cookies</h2>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Last Updated: August 6, 2024
+                    </p>
+                </div>
+            </div>
+            <p class="mb-4">
+                Cookies are small text files stored in your browser that help improve your experience.
+                This policy explains how we use cookies and similar technologies.
+            </p>
+            <button id="manageCookiesBtn" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                <i class="fas fa-cog mr-2"></i>Manage Cookie Preferences
+            </button>
+        </div>
+
+        <!-- Cookie Types Explanation -->
+        <div class="cookie-card">
+            <h2 class="text-xl font-semibold mb-4">Types of Cookies We Use</h2>
+            
+            <!-- Necessary Cookies -->
+            <div class="mb-6">
+                <div class="flex items-center mb-3">
+                    <span class="cookie-type cookie-necessary">Necessary</span>
+                    <span class="ml-2 text-sm text-gray-500">Always Enabled</span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">
+                    These cookies are essential for the website to function properly and cannot be disabled in our systems.
+                </p>
+                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <th class="text-left py-2">Cookie Name</th>
+                                <th class="text-left py-2">Purpose</th>
+                                <th class="text-left py-2">Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <td class="py-2">darkMode</td>
+                                <td class="py-2">Stores interface theme preference</td>
+                                <td class="py-2">Persistent</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <td class="py-2">tyloUserId</td>
+                                <td class="py-2">Unique user identifier</td>
+                                <td class="py-2">Persistent</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2">tyloLanguage</td>
+                                <td class="py-2">Language settings</td>
+                                <td class="py-2">Persistent</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Functional Cookies -->
+            <div class="mb-6">
+                <div class="flex items-center mb-3">
+                    <span class="cookie-type cookie-functional">Functional</span>
+                    <label class="ml-auto flex items-center cursor-pointer">
+                        <input type="checkbox" id="functionalCookies" checked class="mr-2">
+                        <span class="text-sm">Enable</span>
+                    </label>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">
+                    These cookies enable enhanced functionality and personalization.
+                </p>
+                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <th class="text-left py-2">Cookie Name</th>
+                                <th class="text-left py-2">Purpose</th>
+                                <th class="text-left py-2">Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <td class="py-2">tyloChatHistory</td>
+                                <td class="py-2">Saves chat history</td>
+                                <td class="py-2">Persistent</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <td class="py-2">tyloMemorySystem</td>
+                                <td class="py-2">AI memory functionality</td>
+                                <td class="py-2">Persistent</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <td class="py-2">tyloUserNickname</td>
+                                <td class="py-2">User nickname</td>
+                                <td class="py-2">Persistent</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2">tyloAchievements</td>
+                                <td class="py-2">Achievement system data</td>
+                                <td class="py-2">Persistent</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Analytics Cookies -->
+            <div class="mb-6">
+                <div class="flex items-center mb-3">
+                    <span class="cookie-type cookie-analytics">Analytics</span>
+                    <label class="ml-auto flex items-center cursor-pointer">
+                        <input type="checkbox" id="analyticsCookies" class="mr-2">
+                        <span class="text-sm">Enable</span>
+                    </label>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">
+                    These cookies help us understand how visitors use our website to improve our services.
+                </p>
+                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Currently, we don't use third-party analytics cookies. If we introduce them in the future, we will update this policy and seek your consent.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LocalStorage Explanation -->
+        <div class="cookie-card">
+            <h2 class="text-xl font-semibold mb-4">
+                <i class="fas fa-database mr-2 text-blue-500"></i>
+                Local Storage
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                In addition to cookies, we use browser LocalStorage to store data.
+                LocalStorage is similar to cookies but can store more data and isn't sent to the server with each request.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-2">Stored Data</h4>
+                    <ul class="text-sm space-y-1">
+                        <li>• Chat history</li>
+                        <li>• AI memory content</li>
+                        <li>• User settings and preferences</li>
+                        <li>• Points and level information</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-2">Data Characteristics</h4>
+                    <ul class="text-sm space-y-1">
+                        <li>• Stored locally only</li>
+                        <li>• Not sent to the server</li>
+                        <li>• Can be cleared anytime</li>
+                        <li>• Capacity about 5-10MB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Manage -->
+        <div class="cookie-card">
+            <h2 class="text-xl font-semibold mb-4">
+                <i class="fas fa-sliders-h mr-2 text-purple-500"></i>
+                How to Manage Cookies and Local Storage
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="border-l-4 border-purple-500 pl-4">
+                    <h4 class="font-semibold mb-2">Through Our Settings</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Click the "Manage Cookie Preferences" button at the top of this page to select which cookie types you want to enable.
+                    </p>
+                </div>
+                
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h4 class="font-semibold mb-2">Through Browser Settings</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        Most browsers allow you to control cookie settings:
+                    </p>
+                    <ul class="text-sm space-y-1">
+                        <li>• Chrome: Settings → Privacy and security → Cookies</li>
+                        <li>• Firefox: Settings → Privacy & Security → Cookies and Site Data</li>
+                        <li>• Safari: Preferences → Privacy → Cookies and Website Data</li>
+                        <li>• Edge: Settings → Privacy, search, and services → Cookies</li>
+                    </ul>
+                </div>
+                
+                <div class="border-l-4 border-red-500 pl-4">
+                    <h4 class="font-semibold mb-2">Clear All Data</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        You can clear all stored data by:
+                    </p>
+                    <ol class="text-sm list-decimal pl-5 mt-2">
+                        <li>Going to TyloAI settings</li>
+                        <li>Clicking "Delete all conversations"</li>
+                        <li>Clicking "Clear all memories"</li>
+                        <li>Or directly clearing your browser cache</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third-party Cookies -->
+        <div class="cookie-card">
+            <h2 class="text-xl font-semibold mb-4">
+                <i class="fas fa-external-link-alt mr-2 text-orange-500"></i>
+                Third-party Cookies
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Some third-party services we use may set their own cookies:
+            </p>
+            <div class="space-y-3">
+                <div class="flex items-start">
+                    <i class="fas fa-credit-card text-green-500 mr-3 mt-1"></i>
+                    <div>
+                        <strong>Payment Services</strong>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Payment platforms like WeChat Pay may set cookies to process transactions
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-shield-alt text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                        <strong>CDN Services</strong>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            CDNs like Cloudflare may set security-related cookies
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                <p class="text-sm">
+                    <i class="fas fa-info-circle text-yellow-600 mr-2"></i>
+                    We have no control over third-party cookies. We recommend reviewing the relevant services' privacy policies.
+                </p>
+            </div>
+        </div>
+
+        <!-- Updates and Contact -->
+        <div class="cookie-card">
+            <h2 class="text-xl font-semibold mb-4">
+                <i class="fas fa-envelope mr-2 text-green-500"></i>
+                Policy Updates and Contact
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                We may update this Cookie Policy from time to time. Significant changes will be notified through our website.
+            </p>
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-4 rounded-lg">
+                <p class="mb-3">If you have any questions about cookies, please contact us:</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-blue-500"></i>
+                        <span>support@tyloai.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-globe mr-3 text-green-500"></i>
+                        <span>www.tyloai.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Banner (Example) -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="flex items-start">
+            <i class="fas fa-cookie-bite text-2xl text-purple-500 mr-3 mt-1"></i>
+            <div class="flex-1">
+                <h4 class="font-semibold mb-2">Cookie Settings</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    We use cookies to improve your experience. You can choose to accept or manage your preferences.
+                </p>
+                <div class="flex space-x-3">
+                    <button id="acceptAllBtn" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-sm">
+                        Accept All
+                    </button>
+                    <button id="manageBtn" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-sm">
+                        Manage Preferences
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-600 dark:text-gray-400">
+                    © 2024 TyloAI. All rights reserved.
+                </div>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="privacy.html" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600">Privacy Policy</a>
+                    <a href="terms.html" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600">Terms of Service</a>
+                    <a href="memory-guide.html" class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600">AI Memory Guide</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        });
+
+        // Initialize dark mode
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Cookie management
+        document.getElementById('manageCookiesBtn').addEventListener('click', function() {
+            document.getElementById('cookieBanner').style.display = 'block';
+        });
+
+        document.getElementById('acceptAllBtn').addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'all');
+            document.getElementById('cookieBanner').style.display = 'none';
+        });
+
+        document.getElementById('manageBtn').addEventListener('click', function() {
+            alert('Cookie management panel is under development...');
+        });
+
+        // Save cookie preferences
+        document.getElementById('functionalCookies').addEventListener('change', function() {
+            localStorage.setItem('functionalCookies', this.checked);
+        });
+
+        document.getElementById('analyticsCookies').addEventListener('change', function() {
+            localStorage.setItem('analyticsCookies', this.checked);
+        });
+
+        // Load cookie preferences
+        if (localStorage.getItem('functionalCookies') === 'false') {
+            document.getElementById('functionalCookies').checked = false;
+        }
+        if (localStorage.getItem('analyticsCookies') === 'true') {
+            document.getElementById('analyticsCookies').checked = true;
+        }
+    </script>
+</body>
+</html>
